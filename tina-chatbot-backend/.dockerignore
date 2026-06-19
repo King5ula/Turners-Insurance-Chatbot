@@ -1,0 +1,12 @@
+# Stop Docker from climbing out of this folder into OneDrive
+../
+../../
+../../../
+../../../../
+
+# Ignore local app junk
+node_modules/
+.git/
+.env
+build/
+dist/

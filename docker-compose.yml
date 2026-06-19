@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  # 1. THE BACKEND CONTAINER SERVICE CONFIGURATION
+  backend:
+    build:
+      context: ./tina-chatbot-backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./tina-chatbot-backend/.env
+    environment:
+      - NODE_ENV=production
+
+  # 2. THE FRONTEND CONTAINER SERVICE CONFIGURATION
+  frontend:
+    build:
+      context: ./tina-chatbot-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend

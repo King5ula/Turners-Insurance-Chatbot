@@ -1,0 +1,436 @@
+/* 1. Brand Colors & Document Baseline */
+:root {
+  --turners-blue: #0066b2;
+  --turners-red: #c8102e;
+  --bg-grey: #f4f6f9;
+  --bubble-user: #0066b2;
+}
+
+body {
+  margin: 1px;
+  padding: 1px 1px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+  background-color: var(--bg-grey);
+  color: #333;
+  overflow: hidden !important;
+  height: 100vh;
+}
+
+/* 2. Turners Header & Navigation Styles */
+.turner-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 15px 40px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.mock-logo-badge {
+  background-color: var(--turners-red);
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: serif;
+}
+
+.logo-container h1 {
+  font-size: 24px;
+  color: var(--turners-blue);
+  margin: 0;
+}
+
+.logo-sub {
+  color: #555;
+  font-weight: 400;
+}
+
+.mock-nav {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  font-weight: 600;
+  color: #666;
+}
+
+.mock-nav span {
+  cursor: pointer;
+  padding-bottom: 4px;
+}
+
+.active-nav {
+  color: var(--turners-blue);
+  border-bottom: 3px solid var(--turners-blue);
+}
+
+/*3. Main Page Grid & Sidebar Layout */
+.chat-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  max-width: 1200px;
+  margin: 30px auto;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.info-sidebar {
+  background-color: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  height: fit-content;
+}
+
+.info-sidebar h3 {
+  margin-top: 0;
+  color: var(--turners-blue);
+}
+
+.product-tag {
+  padding: 10px;
+  margin-top: 10px;
+  border-left: 4px solid #ccc;
+  font-size: 13px;
+  font-weight: 600;
+  background-color: var(--bg-grey);
+}
+.product-tag.MBI {
+  border-color: #ffa500;
+}
+.product-tag.COMP {
+  border-color: var(--turners-blue);
+}
+.product-tag.THIRD {
+  border-color: var(--turners-red);
+}
+
+/* 4. Chat Window Container (Task 3 Requirement) */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  height: 600px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.chat-window {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #fafafa;
+}
+
+/* 5. Conversational Layout Alignments (Opposite Sides)*/
+.message {
+  display: flex;
+  gap: 12px;
+  max-width: 70%;
+  align-items: flex-start;
+}
+
+/* ✅ Forces User chat boxes to align completely to the RIGHT */
+.message-user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* ✅ Forces Tina's chat boxes to align completely to the LEFT */
+.message-ai {
+  align-self: flex-start;
+}
+
+.message-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.message-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #888;
+}
+
+/* 6. Avatars & Circular Masking */
+.message-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eef0f2;
+  color: #555;
+  overflow: hidden; /* Perfectly clips square JPGs into a round circle */
+  font-weight: bold;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* .tina-direct-avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 30%;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  flex-shrink: 0;
+} */
+
+/* 7. Text Message Bubble Variations */
+.message p {
+  margin: 0;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* User Message Style (Blue layout on the right) */
+.message-user p {
+  background-color: var(--bubble-user);
+  color: white;
+  border-top-right-radius: 0px; /* Sharp speech bubble corner */
+}
+
+/* Tina Message Style (White layout on the left) */
+.message-ai p {
+  background-color: white;
+  color: #333;
+  border-top-left-radius: 0px;
+  border: 1px solid #eef0f2;
+}
+
+/* 8. Automated Loading Wheel & Animation Keyframes */
+.loading-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: white;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid #eef0f2;
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Rotates the Lucide icon continuously */
+.spinner-icon {
+  animation: spin 1.2s linear infinite;
+  color: var(--turners-blue);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 
+   9. User Bottom Form Input Bar
+    */
+.chat-input-bar {
+  display: flex;
+  padding: 15px;
+  background-color: white;
+  border-top: 1px solid #eee;
+  gap: 10px;
+}
+
+.chat-input-bar textarea {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  resize: none;
+  line-height: 1.4;
+  max-height: 100px;
+  font-family: inherit;
+}
+
+.chat-input-bar textarea:focus {
+  border-color: var(--turners-blue);
+}
+
+.chat-input-bar button {
+  background-color: var(--turners-blue);
+  color: white;
+  border: none;
+  padding: 0 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chat-input-bar button:hover {
+  background-color: #005292;
+}
+
+.chat-input-bar button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Styling layout for the header toggle alignment */
+.header-toggle {
+  margin-left: 10px;
+  align-self: center;
+}
+
+.app-canvas-wrapper {
+  min-height: 100vh; /* Forces background to stretch to bottom of screen */
+  /* min-width: 100vw; */
+  background-color: #f4f6f9; /* Default light theme color */
+  transition: background-color 0.2s ease;
+}
+
+/* Styles the toggle button directly inside your header nav items */
+.corner-theme-toggle {
+  background-color: #f4f6f9;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  color: #555;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  margin-left: 15px; /* Adds clean spacing right after "Car Insurance" */
+}
+
+.corner-theme-toggle:hover {
+  background-color: #e2e6ea;
+  transform: scale(1.05);
+}
+
+/* 13. Global Dark Theme Layout Styles Overrides (Edge-to-Edge) */
+
+/* 🎯 THIS LINE fixes your background! It forces the huge side margins of the page to go pure dark */
+.dark-theme-global {
+  background-color: #121212 !important;
+}
+
+/* Force the Top Navigation Header to go Dark Charcoal */
+.dark-theme-global .turner-header {
+  background-color: #1a1a1a !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+  border-bottom: 1px solid #2d2d2d !important;
+}
+
+.dark-theme-global .logo-container h1 {
+  color: #3b9eff !important;
+}
+
+.dark-theme-global .logo-sub {
+  color: #bbb !important;
+}
+
+.dark-theme-global .mock-nav span {
+  color: #aaa !important;
+}
+
+.dark-theme-global .mock-nav .active-nav {
+  color: #3b9eff !important;
+  border-bottom-color: #3b9eff !important;
+}
+
+/* Force the Left-Hand Sidebar Card to go Dark Charcoal */
+.dark-theme-global .info-sidebar {
+  background-color: #1a1a1a !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  color: #e0e0e0 !important;
+}
+
+.dark-theme-global .info-sidebar h3 {
+  color: #3b9eff !important;
+}
+
+/* Force the Side Navigation Button Tags to go Darker Slate Grey */
+.dark-theme-global .product-tag {
+  background-color: #262626 !important;
+  color: #e0e0e0 !important;
+}
+
+.dark-theme-global .product-tag:hover {
+  background-color: #333333 !important;
+}
+
+/* Force the Main Chat Window Wrapper Box to go Dark Charcoal */
+.dark-theme-global .chat-container {
+  background-color: #1a1a1a !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Force the Internal Scrolling Chat Display Wall to go Pure Dark/Black */
+.dark-theme-global .chat-window {
+  background-color: #121212 !important;
+}
+
+/* Force Tina's Left-Aligned Speech Text Boxes to go Dark Slate Grey */
+.dark-theme-global .message-ai p {
+  background-color: #262626 !important;
+  color: #ffffff !important;
+  border: 1px solid #333333 !important;
+}
+
+.dark-theme-global .message-label {
+  color: #888888 !important;
+}
+
+/* Force the Bottom Input Form Row to go Dark Charcoal */
+.dark-theme-global .chat-input-bar {
+  background-color: #1a1a1a !important;
+  border-top: 1px solid #2d2d2d !important;
+}
+
+/* Force the Typing Text Box Element to go Dark Slate Grey */
+.dark-theme-global .chat-input-bar textarea {
+  background-color: #262626 !important;
+  border: 1px solid #444444 !important;
+  color: #ffffffd3 !important;
+}
+
+.dark-theme-global .chat-input-bar textarea:focus {
+  border-color: #3b9eff !important;
+}
+
+/* Adjust the Toggle Button theme inside Dark Mode */
+.dark-theme-global .corner-theme-toggle {
+  background-color: #2a2a2a !important;
+  border-color: #444 !important;
+  color: #ffc107 !important; /* Golden amber color */
+}
+
+.dark-theme-global .corner-theme-toggle:hover {
+  background-color: #3a3a3a !important;
+}
